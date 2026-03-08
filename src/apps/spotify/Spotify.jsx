@@ -1,10 +1,9 @@
-import React from "react";
-import MackWindow from "./MacWindow";
+import Window from "../../components/window/Window";
 import "./spotify.scss";
 
 const Spotify = ({ windowName, setWindowsState }) => {
   return (
-    <MackWindow
+    <Window
       windowName={windowName}
       setWindowsState={setWindowsState}
       width="30vw"
@@ -17,12 +16,12 @@ const Spotify = ({ windowName, setWindowsState }) => {
           width="100%"
           height="352"
           frameBorder="0"
-          allowfullscreen=""
+          allowFullScreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
       </div>
-    </MackWindow>
+    </Window>
   );
 };
 

@@ -1,4 +1,3 @@
-import React from "react";
 import "./dock.scss";
 
 const Dock = ({ setWindowsState }) => {
@@ -15,7 +14,7 @@ const Dock = ({ setWindowsState }) => {
 
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, cli: true }));
+          setWindowsState((state) => ({ ...state, terminal: true }));
         }}
         className="icon cli"
       >
@@ -37,7 +36,7 @@ const Dock = ({ setWindowsState }) => {
 
       <div
         onClick={() => {
-          setWindowsState((state) => ({ ...state, note: true }));
+          setWindowsState((state) => ({ ...state, notes: true }));
         }}
         className="icon notes"
       >

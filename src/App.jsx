@@ -1,31 +1,31 @@
 import { useState } from "react";
-import "./app.scss";
-import Dock from "./components/Dock";
-import Nav from "./components/Nav";
-import Github from "./components/windows/Github";
-import Note from "./components/windows/Note";
-import Resume from "./components/windows/Resume";
-import Spotify from "./components/windows/Spotify";
-import Cli from "./components/windows/Cli";
+import "./styles/global.scss";
+import Dock from "./system/dock/Dock";
+import Nav from "./system/menubar/Nav";
+import Github from "./apps/github/Github";
+import Notes from "./apps/notes/Notes";
+import Resume from "./apps/resume/Resume";
+import Spotify from "./apps/spotify/Spotify";
+import Terminal from "./apps/terminal/Terminal";
 
 function App() {
   const [windowsState, setWindowsState] = useState({
     github: false,
-    note: false,
+    notes: false,
     resume: false,
     spotify: false,
-    cli: false,
+    terminal: false,
   });
 
   return (
     <main>
       <Nav />
-      <Dock windowsState={windowsState} setWindowsState={setWindowsState} />
+      <Dock setWindowsState={setWindowsState} />
       {windowsState.github && (
         <Github windowName="github" setWindowsState={setWindowsState} />
       )}
-      {windowsState.note && (
-        <Note windowName="note" setWindowsState={setWindowsState} />
+      {windowsState.notes && (
+        <Notes windowName="notes" setWindowsState={setWindowsState} />
       )}
       {windowsState.resume && (
         <Resume windowName="resume" setWindowsState={setWindowsState} />
@@ -33,8 +33,8 @@ function App() {
       {windowsState.spotify && (
         <Spotify windowName="spotify" setWindowsState={setWindowsState} />
       )}
-      {windowsState.cli && (
-        <Cli windowName="cli" setWindowsState={setWindowsState} />
+      {windowsState.terminal && (
+        <Terminal windowName="terminal" setWindowsState={setWindowsState} />
       )}
     </main>
   );

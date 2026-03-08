@@ -1,13 +1,12 @@
-import React from "react";
-import MackWindow from "./MacWindow";
-import Terminal from "react-console-emulator";
-import "./cli.scss";
+import Cli from "react-console-emulator";
+import Window from "../../components/window/Window";
+import "./terminal.scss";
 
-const Cli = ({ windowName, setWindowsState }) => {
+const Terminal = ({ windowName, setWindowsState }) => {
   return (
-    <MackWindow windowName={windowName} setWindowsState={setWindowsState}>
+    <Window windowName={windowName} setWindowsState={setWindowsState}>
       <div className="cli-window">
-        <Terminal
+        <Cli
           commands={{
             echo: {
               description: "Echo a passed string.",
@@ -18,7 +17,7 @@ const Cli = ({ windowName, setWindowsState }) => {
               description: "Show info about this portfolio.",
               usage: "about",
               fn: () =>
-                "\n\u2728 Welcome to Macfolio!\nThis portfolio showcases Chetan's work, skills, and projects.\n",
+                "\n\u2728 Welcome to MYOS!\nThis portfolio showcases Chetan's work, skills, and projects.\n",
             },
             contact: {
               description: "Show contact information.",
@@ -30,7 +29,7 @@ const Cli = ({ windowName, setWindowsState }) => {
               description: "List portfolio projects.",
               usage: "projects",
               fn: () =>
-                "\n\uD83D\uDCDA Projects:\n- Macfolio\n- ResumeApp\n- NoteApp\n- Spotify Clone\n- CLI Terminal\n",
+                "\n\uD83D\uDCDA Projects:\n- MYOS\n- ResumeApp\n- NoteApp\n- Spotify Clone\n- CLI Cli\n",
             },
             skills: {
               description: "Show skills.",
@@ -52,9 +51,9 @@ const Cli = ({ windowName, setWindowsState }) => {
             },
           }}
           welcomeMessage={
-            "\n\u2728 Welcome to Macfolio Terminal!\nType 'help' to see all available commands.\n\uD83D\uDCBB Portfolio CLI | \uD83D\uDC64 Chetan\n"
+            "\n\u2728 Welcome to MYOS Cli!\nType 'help' to see all available commands.\n\uD83D\uDCBB Portfolio CLI | \uD83D\uDC64 Chetan\n"
           }
-          promptLabel={"chetan@macfolio:~$"}
+          promptLabel={"chetan@MYOS:~$"}
           promptLabelStyle={{
             color: "#00ff00",
             fontWeight: "bold",
@@ -62,8 +61,8 @@ const Cli = ({ windowName, setWindowsState }) => {
           }}
         />
       </div>
-    </MackWindow>
+    </Window>
   );
 };
 
-export default Cli;
+export default Terminal;

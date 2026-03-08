@@ -1,6 +1,5 @@
-import React from "react";
 import githubData from "../../assets/github.json";
-import Macwindow from "./MacWindow";
+import Window from "../../components/window/Window";
 import "./github.scss";
 
 const GitCard = ({
@@ -21,8 +20,10 @@ const GitCard = ({
       <p className="description">{data.description}</p>
 
       <div className="tags">
-        {data.tags.map((tag) => (
-          <p className="tag">{tag}</p>
+        {data.tags.map((tag, index) => (
+          <p key={index} className="tag">
+            {tag}
+          </p>
         ))}
       </div>
 
@@ -36,13 +37,13 @@ const GitCard = ({
 
 const Github = ({ windowName, setWindowsState }) => {
   return (
-    <Macwindow windowName={windowName} setWindowsState={setWindowsState}>
+    <Window windowName={windowName} setWindowsState={setWindowsState}>
       <div className="cards">
-        {githubData.map((project) => {
-          return <GitCard data={project} />;
-        })}
+        {githubData.map((project) => (
+          <GitCard key={project.id} data={project} />
+        ))}
       </div>
-    </Macwindow>
+    </Window>
   );
 };
 
