@@ -8,6 +8,7 @@ import Resume from "./apps/resume/Resume";
 import Spotify from "./apps/spotify/Spotify";
 import Terminal from "./apps/terminal/Terminal";
 import BootScreen from "./core/boot/BootScreen";
+import LiveWallpaper from "./core/wallpaper/LiveWallpaper";
 
 function App() {
   const [windowsState, setWindowsState] = useState({
@@ -42,6 +43,8 @@ function App() {
 
   return (
     <main>
+      <LiveWallpaper />
+
       <Nav />
       <Dock setWindowsState={setWindowsState} />
 
