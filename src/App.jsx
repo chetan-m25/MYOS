@@ -19,6 +19,23 @@ function App() {
   });
 
   const [bootComplete, setBootComplete] = useState(false);
+
+  const [zIndexMap, setZIndexMap] = useState({});
+  const [topZIndex, setTopZIndex] = useState(10);
+
+  const bringToFront = (windowName) => {
+    setTopZIndex((prev) => {
+      const newZ = prev + 1;
+
+      setZIndexMap((map) => ({
+        ...map,
+        [windowName]: newZ,
+      }));
+
+      return newZ;
+    });
+  };
+
   if (!bootComplete) {
     return <BootScreen onFinish={() => setBootComplete(true)} />;
   }
@@ -27,20 +44,50 @@ function App() {
     <main>
       <Nav />
       <Dock setWindowsState={setWindowsState} />
+
       {windowsState.github && (
-        <Github windowName="github" setWindowsState={setWindowsState} />
+        <Github
+          windowName="github"
+          setWindowsState={setWindowsState}
+          bringToFront={bringToFront}
+          zIndex={zIndexMap.github}
+        />
       )}
+
       {windowsState.notes && (
-        <Notes windowName="notes" setWindowsState={setWindowsState} />
+        <Notes
+          windowName="notes"
+          setWindowsState={setWindowsState}
+          bringToFront={bringToFront}
+          zIndex={zIndexMap.notes}
+        />
       )}
+
       {windowsState.resume && (
-        <Resume windowName="resume" setWindowsState={setWindowsState} />
+        <Resume
+          windowName="resume"
+          setWindowsState={setWindowsState}
+          bringToFront={bringToFront}
+          zIndex={zIndexMap.resume}
+        />
       )}
+
       {windowsState.spotify && (
-        <Spotify windowName="spotify" setWindowsState={setWindowsState} />
+        <Spotify
+          windowName="spotify"
+          setWindowsState={setWindowsState}
+          bringToFront={bringToFront}
+          zIndex={zIndexMap.spotify}
+        />
       )}
+
       {windowsState.terminal && (
-        <Terminal windowName="terminal" setWindowsState={setWindowsState} />
+        <Terminal
+          windowName="terminal"
+          setWindowsState={setWindowsState}
+          bringToFront={bringToFront}
+          zIndex={zIndexMap.terminal}
+        />
       )}
     </main>
   );

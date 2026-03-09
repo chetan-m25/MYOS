@@ -4,7 +4,7 @@ import { atelierDuneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Window from "../../components/window/Window";
 import "./notes.scss";
 
-const Notes = ({ windowName, setWindowsState }) => {
+const Notes = ({ windowName, setWindowsState, bringToFront, zIndex }) => {
   const [markdown, setMarkdown] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,12 @@ const Notes = ({ windowName, setWindowsState }) => {
   }, []);
 
   return (
-    <Window windowName={windowName} setWindowsState={setWindowsState}>
+    <Window
+      windowName={windowName}
+      setWindowsState={setWindowsState}
+      bringToFront={bringToFront}
+      zIndex={zIndex}
+    >
       <div className="note-window">
         {markdown ? (
           <SyntaxHighlighter language="typescript" style={atelierDuneDark}>

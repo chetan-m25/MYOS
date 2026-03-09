@@ -35,12 +35,22 @@ const GitCard = ({
   );
 };
 
-const Github = ({ windowName, setWindowsState }) => {
+const Github = ({ windowName, setWindowsState, bringToFront, zIndex }) => {
   return (
-    <Window windowName={windowName} setWindowsState={setWindowsState}>
+    <Window
+      windowName={windowName}
+      setWindowsState={setWindowsState}
+      bringToFront={bringToFront}
+      zIndex={zIndex}
+    >
       <div className="cards">
         {githubData.map((project) => (
-          <GitCard key={project.id} data={project} />
+          <GitCard
+            key={project.id}
+            data={project}
+            bringToFront={bringToFront}
+            zIndex={zIndex}
+          />
         ))}
       </div>
     </Window>

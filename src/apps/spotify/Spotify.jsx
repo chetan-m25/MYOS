@@ -1,11 +1,13 @@
 import Window from "../../components/window/Window";
 import "./spotify.scss";
 
-const Spotify = ({ windowName, setWindowsState }) => {
+const Spotify = ({ windowName, setWindowsState, bringToFront, zIndex }) => {
   return (
     <Window
       windowName={windowName}
       setWindowsState={setWindowsState}
+      bringToFront={bringToFront}
+      zIndex={zIndex}
       width="30vw"
     >
       <div className="spotify-window">

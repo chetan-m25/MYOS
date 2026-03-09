@@ -2,9 +2,14 @@ import Cli from "react-console-emulator";
 import Window from "../../components/window/Window";
 import "./terminal.scss";
 
-const Terminal = ({ windowName, setWindowsState }) => {
+const Terminal = ({ windowName, setWindowsState, bringToFront, zIndex }) => {
   return (
-    <Window windowName={windowName} setWindowsState={setWindowsState}>
+    <Window
+      windowName={windowName}
+      setWindowsState={setWindowsState}
+      bringToFront={bringToFront}
+      zIndex={zIndex}
+    >
       <div className="cli-window">
         <Cli
           commands={{
