@@ -1,84 +1,91 @@
 import "./dock.scss";
+import { useState } from "react";
 
-const Dock = ({ setWindowsState }) => {
+const dockItems = [
+  {
+    id: "calendar",
+    icon: "/doc-icons/calender.svg",
+    action: () => window.open("https://calendar.google.com/", "_blank"),
+    label: "Calendar",
+  },
+  {
+    id: "terminal",
+    icon: "/doc-icons/cli.svg",
+    label: "Terminal",
+  },
+  {
+    id: "mail",
+    icon: "/doc-icons/mail.svg",
+    action: () => window.open("mailto:chetan.mm25@gmail.com", "_blank"),
+    label: "Mail",
+  },
+  {
+    id: "notes",
+    icon: "/doc-icons/notes.svg",
+    label: "Notes",
+  },
+  {
+    id: "spotify",
+    icon: "/doc-icons/spotify.svg",
+    label: "Music",
+  },
+  {
+    id: "resume",
+    icon: "/doc-icons/pdf.svg",
+    label: "Resume",
+  },
+  {
+    id: "github",
+    icon: "/doc-icons/github.svg",
+    label: "Projects",
+  },
+  {
+    id: "linkedin",
+    icon: "/doc-icons/linkedin.svg",
+    action: () =>
+      window.open("https://www.linkedin.com/in/chetan-m25/", "_blank"),
+    label: "LinkedIn",
+  },
+];
+
+const Dock = ({ setWindowsState, windowsState }) => {
+  const [hovered, setHovered] = useState(null);
+
+  const openApp = (id, action) => {
+    if (action) return action();
+
+    setWindowsState((state) => ({
+      ...state,
+      [id]: true,
+    }));
+  };
+
   return (
-    <footer className="dock">
-      <div
-        onClick={() => {
-          window.open("https://calendar.google.com/", "_blank");
-        }}
-        className="icon calender"
-      >
-        <img src="/doc-icons/calender.svg" alt="" />
-      </div>
+    <div className="dock">
+      {dockItems.map((item, i) => {
+        const distance = hovered === null ? 99 : Math.abs(i - hovered);
 
-      <div
-        onClick={() => {
-          setWindowsState((state) => ({ ...state, terminal: true }));
-        }}
-        className="icon cli"
-      >
-        <img src="/doc-icons/cli.svg" alt="" />
-      </div>
+        const scale =
+          distance === 0 ? 1.4 : distance === 1 ? 1.2 : distance === 2 ? 1 : 1;
 
-      <div className="icon link">
-        <img src="/doc-icons/link.svg" alt="" />
-      </div>
+        return (
+          <div
+            key={item.id}
+            className={`icon ${windowsState[item.id] ? "active" : ""}`}
+            style={{ transform: `scale(${scale})` }}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+            onClick={() => openApp(item.id, item.action)}
+          >
+            <img src={item.icon} alt={item.label} />
 
-      <div
-        onClick={() => {
-          window.open("mailto:chetan.mm25@gmail.com", "_blank");
-        }}
-        className="icon mail"
-      >
-        <img src="/doc-icons/mail.svg" alt="" />
-      </div>
+            <span className="tooltip">{item.label}</span>
 
-      <div
-        onClick={() => {
-          setWindowsState((state) => ({ ...state, notes: true }));
-        }}
-        className="icon notes"
-      >
-        <img src="/doc-icons/notes.svg" alt="" />
-      </div>
-
-      <div
-        onClick={() => {
-          setWindowsState((state) => ({ ...state, spotify: true }));
-        }}
-        className="icon spotify"
-      >
-        <img src="/doc-icons/spotify.svg" alt="" />
-      </div>
-
-      <div
-        onClick={() => {
-          setWindowsState((state) => ({ ...state, resume: true }));
-        }}
-        className="icon pdf"
-      >
-        <img src="/doc-icons/pdf.svg" alt="" />
-      </div>
-
-      <div
-        onClick={() => {
-          setWindowsState((state) => ({ ...state, github: true }));
-        }}
-        className="icon github"
-      >
-        <img src="/doc-icons/github.svg" alt="" />
-      </div>
-
-      <div
-        onClick={() => {
-          window.open("https://www.linkedin.com/in/chetan-m25/", "_blank");
-        }}
-        className="icon linkedin"
-      >
-        <img src="/doc-icons/linkedin.svg" alt="" />
-      </div>
-    </footer>
+            {windowsState[item.id] && <div className="indicator" />}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

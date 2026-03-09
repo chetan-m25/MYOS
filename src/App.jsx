@@ -46,7 +46,7 @@ function App() {
       <LiveWallpaper />
 
       <Nav />
-      <Dock setWindowsState={setWindowsState} />
+      <Dock setWindowsState={setWindowsState} windowsState={windowsState} />
 
       {windowsState.github && (
         <Github

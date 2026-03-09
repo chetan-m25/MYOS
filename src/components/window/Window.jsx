@@ -1,5 +1,9 @@
 import { Rnd } from "react-rnd";
+import { useState } from "react";
 import "./window.scss";
+
+let highestZ = 10;
+let spawnOffset = 0;
 
 const Window = ({
   children,
@@ -7,14 +11,28 @@ const Window = ({
   height = "60vh",
   windowName,
   setWindowsState,
-  bringToFront,
-  zIndex = 1,
 }) => {
+  const [zIndex, setZIndex] = useState(++highestZ);
+
+  const offset = spawnOffset;
+  spawnOffset += 40;
+  if (spawnOffset > 160) spawnOffset = 0;
+
+  const bringToFront = () => {
+    highestZ += 1;
+    setZIndex(highestZ);
+  };
+
   return (
     <Rnd
-      default={{ width: width, height: height, x: 300, y: 200 }}
+      default={{
+        width: width,
+        height: height,
+        x: 300 + offset,
+        y: 180 + offset,
+      }}
       style={{ zIndex }}
-      onMouseDown={() => bringToFront(windowName)}
+      onMouseDown={bringToFront}
     >
       <div className="window">
         <div className="nav">
@@ -28,7 +46,6 @@ const Window = ({
               }
               className="dot red"
             ></div>
-
             <div className="dot yellow"></div>
             <div className="dot green"></div>
           </div>
