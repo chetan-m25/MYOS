@@ -1,0 +1,159 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+  cursor: none;
+}
+
+.boot-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-size: clamp(3rem, 7vw, 6rem);
+  color: white;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  background: radial-gradient(
+    circle,
+    rgba(138, 43, 226, 0.25),
+    rgba(0, 255, 255, 0.18),
+    rgba(255, 105, 180, 0.12),
+    transparent 70%
+  );
+
+  filter: blur(60px);
+
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+
+  animation: auroraPulse 6s ease infinite;
+}
+
+@keyframes auroraPulse {
+  0% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.logo span {
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.logo.glow span {
+  animation: glowPulse 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 12px rgba(255, 255, 255, 0.45),
+      0 0 24px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px rgba(255, 255, 255, 0.75),
+      0 0 40px rgba(255, 255, 255, 0.5),
+      0 0 70px rgba(255, 255, 255, 0.35);
+  }
+
+  100% {
+    text-shadow:
+      0 0 12px rgba(255, 255, 255, 0.45),
+      0 0 24px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.boot-greeting {
+  text-align: center;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: #cfcfcf;
+  letter-spacing: 0.08em;
+}
+
+.boot-logs {
+  position: absolute;
+  bottom: 8vh;
+  left: 6vw;
+
+  font-family: monospace;
+  font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+  color: #9a9a9a;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+@media (max-width: 600px) {
+  .boot-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .boot-logs {
+    bottom: 6vh;
+    left: 8vw;
+  }
+}
+
+.brightness-layer {
+  position: fixed;
+  inset: 0;
+  background: black;
+  animation: brightnessFade 1.2s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes brightnessFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

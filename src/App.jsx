@@ -7,6 +7,7 @@ import Notes from "./apps/notes/Notes";
 import Resume from "./apps/resume/Resume";
 import Spotify from "./apps/spotify/Spotify";
 import Terminal from "./apps/terminal/Terminal";
+import BootScreen from "./core/boot/BootScreen";
 
 function App() {
   const [windowsState, setWindowsState] = useState({
@@ -16,6 +17,11 @@ function App() {
     spotify: false,
     terminal: false,
   });
+
+  const [bootComplete, setBootComplete] = useState(false);
+  if (!bootComplete) {
+    return <BootScreen onFinish={() => setBootComplete(true)} />;
+  }
 
   return (
     <main>
