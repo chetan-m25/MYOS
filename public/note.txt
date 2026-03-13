@@ -1,7 +1,7 @@
 /**
  * @file: profile.config.ts
- * @author: Engineering Portfolio
- * @summary: A high-performance full-stack engineer.
+ * @author: Chetan M Mangalagatti
+ * @summary: A passionate MERN stack developer building real-world full stack applications.
  */
 
 // --------------------------------------------------
@@ -10,96 +10,168 @@
 
 const TECH_STACK = {
   frontend: [
-    "React.js",    // 100%
-    "Next.js",     // 95%
-    "TailwindCSS", // 90%
-    "Three.js",    // 70%
+    "React.js",     // 95%
+    "Vite",         // 90%
+    "SCSS",         // 85%
+    "Context API",  // 85%
+    "Custom Hooks"  // 80%
   ],
+
   backend: [
-    "Node.js",     // 90%
-    "PostgreSQL",  // 85%
-    "Redis",       // 75%
-    "Docker",      // 80%
+    "Node.js",      // 90%
+    "Express.js",   // 90%
+    "MongoDB",      // 85%
+    "Mongoose",     // 85%
+    "Redis"         // 75%
   ],
-  tools: ["AWS", "Git", "Figma", "Linux"]
+
+  tools: [
+    "Git",
+    "GitHub",
+    "Postman",
+    "VS Code",
+    "ImageKit CDN",
+    "Vercel",
+    "Render"
+  ]
 };
 
 // --------------------------------------------------
-// 2. EXPERIENCE LOG (Reverse Chronological)
+// 2. PROJECT EXPERIENCE
 // --------------------------------------------------
 
-class ProfessionalHistory {
-  
-  /** * CURRENT ROLE
-   * @period 2023 - Present 
+class DeveloperProjects {
+
+  /**
+   * MOODIFY
+   * @period 2025 - Present
    */
-  public async TechFlow_Systems(): Promise<Impact> {
-    const role = "Senior Full-Stack Engineer";
-    
-    // Key Achievements
-    const optimized = await api.optimize({ strategy: "Redis Caching" });
-    const latencyReduction = "40%";
-    
-    const leadership = this.mentor(["Jr. Dev 1", "Jr. Dev 2", "Jr. Dev 3"]);
-    const architecture = "Monolith -> Microservices Migration";
-    
-    return { role, optimized, architecture, leadership };
+
+  public async Moodify_AI_Music_Platform(): Promise<ProjectImpact> {
+
+    const project = "Moodify — AI Mood Based Music Platform";
+
+    const aiDetection = "Google MediaPipe Facial Landmark Detection";
+    const backend = ["Node.js", "Express", "MongoDB", "Redis"];
+    const player = "Custom React Music Player";
+
+    const features = [
+      "Mood-based music recommendation",
+      "Playlist queue & playback control",
+      "Secure JWT authentication",
+      "Audio storage using ImageKit CDN"
+    ];
+
+    const deployment = {
+      frontend: "Vercel",
+      backend: "Render"
+    };
+
+    return { project, aiDetection, backend, features, deployment };
   }
 
-  /** * PREVIOUS ROLE
-   * @period 2021 - 2023
+
+  /**
+   * MINSTA
+   * @period 2025
    */
-  public PixelPerfect_Studios(): void {
-    this.role = "Frontend Developer";
-    this.focus = "High-Fidelity Animations";
-    
-    // Implemented GSAP scroll-triggers for 15+ clients
-    // Improved Lighthouse Performance Scores: 65 -> 98
+
+  public Minsta_Social_Platform(): void {
+
+    this.project = "Minsta — Full Stack Social Media Platform";
+
+    this.stack = [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose"
+    ];
+
+    this.features = [
+      "Post creation & feed system",
+      "Follow / Unfollow functionality",
+      "Like & Save system",
+      "JWT authentication",
+      "Media upload with ImageKit CDN"
+    ];
+
+    this.architecture = "Controller-based backend architecture";
   }
 }
 
 // --------------------------------------------------
-// 3. COMPETITIVE ACHIEVEMENTS
+// 3. CERTIFICATIONS
 // --------------------------------------------------
 
-interface HackathonWin {
-  rank: number;
-  event: string;
-  project: string;
+interface Certification {
+  title: string;
+  issuer: string;
+  year: number;
 }
 
-const trophyCabinet: HackathonWin[] = [
+const certifications: Certification[] = [
   {
-    rank: 1,
-    event: "Global AI Hackathon 2024",
-    project: "EcoVision (Computer Vision Waste Segregation)",
-    // Prize: $5,000
-  },
-  {
-    rank: 500, // Top 500 Global
-    event: "Google Code Jam 2023",
-    project: "Algorithm Optimization (Dynamic Programming)",
+    title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    issuer: "Oracle",
+    year: 2025
   }
 ];
 
 // --------------------------------------------------
-// 4. ACADEMIC BACKGROUND
+// 4. EDUCATION
 // --------------------------------------------------
 
 const education = new Map<string, string>([
-  ["Stanford University", "MS Computer Science (3.9 GPA)"],
-  ["MIT World Peace Univ", "B.Tech Information Tech (8.8 CGPA)"]
+  ["Karnatak University", "Bachelor of Computer Applications (BCA) — CGPA: 8.39 / 10"],
 ]);
 
-export default new ProfessionalHistory();
+// --------------------------------------------------
+// 5. OPEN SOURCE & DEVELOPMENT
+// --------------------------------------------------
+
+const openSource = {
+  github: "github.com/chetan-m25",
+  repositories: "20+",
+  focus: [
+    "Full Stack MERN Applications",
+    "Authentication Systems",
+    "REST API Development",
+    "Frontend Architecture"
+  ]
+};
+
+// --------------------------------------------------
+// 6. PORTFOLIO
+// --------------------------------------------------
+
+const portfolio = {
+  website: "https://myos-portfolio.vercel.app/",
+  featuredProjects: [
+    "Moodify AI Music Platform",
+    "Minsta Social Media Platform"
+  ]
+};
+
+export default new DeveloperProjects();
 
 
-```bash
-# TERMINAL OUTPUT
-# ---------------------------------------
-$ user --status
+/**
+ * TERMINAL OUTPUT
+ * ---------------------------------------
+ */
+
+console.log(`
+$ chetan --status
+
+> Role: MERN Stack Developer
+> Location: India
+> Portfolio: myos-portfolio.vercel.app
+> GitHub: github.com/chetan-m25
+> Projects: Moodify | Minsta
+
 > Status: Open to Opportunities
-> Location: Global / Remote
-> Loading Assets... [||||||||||] 100%
+> Loading Projects... [||||||||||] 100%
+
 > Ready.
-```
+`);

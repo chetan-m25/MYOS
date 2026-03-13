@@ -37,11 +37,13 @@ const dockItems = [
   {
     id: "github",
     icon: "/doc-icons/github.svg",
-    label: "Projects",
+    action: () => window.open("https://github.com/chetan-m25", "_blank"),
+    label: "Github",
   },
   {
     id: "linkedin",
     icon: "/doc-icons/linkedin.svg",
+    // only remove this action attribute to continue with Github component
     action: () =>
       window.open("https://www.linkedin.com/in/chetan-m25/", "_blank"),
     label: "LinkedIn",
