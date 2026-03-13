@@ -3,32 +3,24 @@ import DateTime from "./DateTime";
 
 const Nav = () => {
   return (
-    <nav>
+    <nav className="menubar">
       <div className="left">
-        <div className="apple-icon">
-          <img src="/nav-icons/apple.svg" alt="" />
+        <div className="logo">
+          <img src="/nav-icons/myos.svg" alt="MYOS" />
         </div>
-        <div className="nav-item">
-          <p>Chetan M</p>
-        </div>
-        <div className="nav-item">
-          <p>File</p>
-        </div>
-        <div className="nav-item">
-          <p>Window</p>
-        </div>
-        <div className="nav-item">
-          <p>Terminal</p>
-        </div>
-        <div className="nav-item">
-          <p></p>
-        </div>
+
+        <span className="nav-item">Chetan M</span>
+        <span className="nav-item">File</span>
+        <span className="nav-item">Window</span>
+        <span className="nav-item">Terminal</span>
       </div>
+
       <div className="right">
         <div className="nav-icon">
-          <img src="/nav-icons/wifi.svg" alt="" />
+          <img src="/nav-icons/wifi.svg" alt="wifi" />
         </div>
-        <div className="nav-item">
+
+        <div className="datetime">
           <DateTime />
         </div>
       </div>

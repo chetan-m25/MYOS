@@ -27,7 +27,7 @@ const DateTime = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>{dateTime}</div>;
+  return <span>{dateTime}</span>;
 };
 
 export default DateTime;
